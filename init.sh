@@ -41,6 +41,12 @@ IAM_USER=$(aws iam create-access-key --user-name "${REPO}")
 ws="${REPO}"
 export TFH_org=$ORG
 
+# create reusable delegation set and get its identifier
+aws route53 create-reusable-delegation-set --caller-reference Bowdoin >/dev/null 2>&1
+DSET_ID=$(aws route53 list-reusable-delegation-sets \
+  | jq -r '.DelegationSets|.[]|select(.CallerReference=="Bowdoin")|.Id' \
+  | sed 's|.*/||')
+
 # create workspace and add github repo
 if ! tfh ws show -name "$ws" >/dev/null 2>&1; then
   echo "creating workspace $ws"
@@ -57,4 +63,7 @@ tfh pushvars -name "$ws" \
 
 # set initial workspace variables
 tfh pushvars -name "$ws" \
-  -hcl-var "tags={}"
+  -hcl-var "tags={}" \
+  -hcl-var "authoritative_zones=[ \"aws.bowdoin.edu\" ]" \
+  -var "delegation_set_id=$DSET_ID" \
+  -var "hostmaster=hostmaster@bowdoin.edu"
