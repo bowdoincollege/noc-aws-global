@@ -19,7 +19,7 @@ variable "hostmaster" {
   description = "Email address of hostmaster"
   type        = string
   validation {
-    condition     = can(regex("^[0-9a-z.-]+@[0-9a-z.-]+[0-9a-z]]$", var.hostmaster))
+    condition     = can(regex("^[0-9a-z.-]+@[0-9a-z.-]+[0-9a-z]$", var.hostmaster))
     error_message = "Email address must be in user@example.com format."
   }
 }
