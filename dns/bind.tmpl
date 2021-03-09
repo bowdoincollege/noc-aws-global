@@ -1,0 +1,8 @@
+%{ for ns in nameservers ~}
+${         format("%16sIN      A               %s", ns.name, ns.ipv4_addr)}
+${         format("%16sIN      AAAAA           %s", "", ns.ipv6_addr)}
+%{ endfor ~}
+${domain}   IN ns1.${domain}
+            IN ns2.${domain}
+            IN ns3.${domain}
+            IN ns4.${domain}

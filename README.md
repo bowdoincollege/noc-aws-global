@@ -19,6 +19,8 @@ Manages authoritative zones with custom name servers.
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| dns\_delegations | Delegation and glue records for each authoritative zone. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 <!-- markdownlint-restore -->
