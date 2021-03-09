@@ -3,7 +3,7 @@ locals {
     createdby     = "terraform"
     costcenter    = "240340"
     environment   = "prod"
-    documentation = "https://github.com/bowdoincollege/noc-aws-common"
+    documentation = "https://github.com/bowdoincollege/noc-aws-global"
   }, var.tags)
 }
 
