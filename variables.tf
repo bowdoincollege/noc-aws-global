@@ -12,7 +12,6 @@ variable "authoritative_zones" {
 variable "delegation_set_id" {
   description = "Identifier for pre-existing delegation set"
   type        = string
-  default     = "N02229052AD91KPSZ09M6"
 }
 
 variable "hostmaster" {
