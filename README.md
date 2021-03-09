@@ -6,6 +6,10 @@ This repository/workspace manages any common resources that are not region-speci
 
 Manages authoritative zones with custom name servers.
 
+Each zone will need to have glue and NS records added to the parent zone to delegate
+the subdomain to AWS name servers.  Run the `delegations.py` script to generate a
+configuration snippet for a bind zone file.
+
 <!-- markdownlint-disable -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
