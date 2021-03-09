@@ -5,7 +5,7 @@ terraform {
     hostname     = "app.terraform.io"
     organization = "bowdoincollege"
     workspaces {
-      name = "noc-aws-common"
+      name = "noc-aws-global"
     }
   }
 }
